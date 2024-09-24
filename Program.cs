@@ -64,7 +64,22 @@ namespace ShoppingSystem
 
 		private static void AddItem()
 		{
-			throw new NotImplementedException();
+			Console.WriteLine("Available items:");
+
+			foreach (var Item in itemPrices)
+			{
+				Console.WriteLine($"Item:{Item.Key}, Price:{Item.Value}");
+			}
+
+			Console.WriteLine("Please enter product name: ");
+			string cartItem = Console.ReadLine();
+
+			if (itemPrices.ContainsKey(cartItem))
+			{
+				cartItems.Add(cartItem);
+				Console.WriteLine($"Item {cartItem} is added to your cart");
+			}
+			else Console.WriteLine("Item is out of stock or not available");
 		}
 		private static void ViewCart()
 		{
