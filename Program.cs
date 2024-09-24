@@ -3,6 +3,21 @@ namespace ShoppingSystem
 {
 	internal class Program
 	{
+		// written in namespace so cart value is available to all methods
+		// static so that easily available without making instance/object to access
+		// STOCK
+		static public List<string> cartItems = new List<string>();
+
+		// items in store are simple starting with only name and price
+		// saved in dictionary since it is a key value types so consists of key and its value
+		// dictionary is generic type
+		// USER SHOPPING CART
+		static public Dictionary<string, double> itemPrices = new Dictionary<string, double>()
+		{
+			{"Camera",1500 },
+			{"Laptop",3000 },
+			{"TV",2500 }
+		};
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Welcome to Shopping System!!!!");
@@ -47,27 +62,23 @@ namespace ShoppingSystem
 			}
 		}
 
-		private static void Undo()
+		private static void AddItem()
 		{
 			throw new NotImplementedException();
 		}
-
-		private static void Checkout()
-		{
-			throw new NotImplementedException();
-		}
-
-		private static void RemoveItem()
-		{
-			throw new NotImplementedException();
-		}
-
 		private static void ViewCart()
 		{
 			throw new NotImplementedException();
 		}
-
-		private static void AddItem()
+		private static void RemoveItem()
+		{
+			throw new NotImplementedException();
+		}
+		private static void Checkout()
+		{
+			throw new NotImplementedException();
+		}
+		private static void Undo()
 		{
 			throw new NotImplementedException();
 		}
