@@ -87,21 +87,53 @@ namespace ShoppingSystem
 
 			if (cartItems.Any())
 			{
-				foreach (var Item in cartItems)
+				var itemPriceCollection = GetCartPrices();
+				// you can leave it without casting but you can't add, remove, .....
+
+				foreach (var Item in itemPriceCollection)
 				{
-					// item name
-					Console.WriteLine($"Item :{Item}");
-
-					// item price
-
+					// item name, price
+					Console.WriteLine($"Item: {Item.Item1}, Price: {Item.Item2}");
 				}
 			}
 			else Console.WriteLine("Cart is empty!!");
 				
 		}
-		private static void GetCartPrices()
+		private static IEnumerable<Tuple<string, double>> GetCartPrices()
 		{
+			// it can also be stored in many others structures
+			// List=> storing multible data, this data could be <=Tuple
+			// Tuple could have 2 variables or more up to 8
+			// Tuple and List are both data structures <>
+			// the main purpose of this is to save the results in a List of Tuples
+			var cartPrices = new List<Tuple<string,double>>();
 
+			// now i am doing a loop on all items i have in the store
+			// to look for the price of the specific item the user chose to buy
+			foreach (var Item in cartItems)
+			{
+				double price = 0;
+
+				// TryGetValue method takes the Key type(string name) and
+				// does something called out to the value type(double price)
+				// Try meaning it will try to find it(return true) or didn't find it(return false)
+				bool foundItem = itemPrices.TryGetValue(Item, out price);
+				if (foundItem)
+				{
+					// creating a new Tuple which has both the item and price
+					Tuple<string,double> itemPrice = new Tuple<string,double>(Item, price);
+
+					// and now i add to the cartPrices which contains what the user chose to add the cart
+					// and add to them the new Tuple
+					cartPrices.Add(itemPrice);
+				}
+			}
+			// it is preferred when returning any data structure type <> in its origin
+			// so instead of making the method typr List<Tuple<string,double>> it will be IEnumerable<Tuple<string,double>>
+			// IEnumerable gives me a a type of abstraction
+			// and flexbility as other classes to cast the output to any other collection implementing IEnumerable
+			// and non mutable which means others can't change its value to implement security
+			return cartPrices;
 		}
 		private static void RemoveItem()
 		{
