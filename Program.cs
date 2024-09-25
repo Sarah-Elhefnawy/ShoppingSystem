@@ -61,7 +61,6 @@ namespace ShoppingSystem
 				}
 			}
 		}
-
 		private static void AddItem()
 		{
 			Console.WriteLine("Available items:");
