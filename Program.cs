@@ -83,7 +83,25 @@ namespace ShoppingSystem
 		}
 		private static void ViewCart()
 		{
-			throw new NotImplementedException();
+			Console.WriteLine("Your cart items :");
+
+			if (cartItems.Any())
+			{
+				foreach (var Item in cartItems)
+				{
+					// item name
+					Console.WriteLine($"Item :{Item}");
+
+					// item price
+
+				}
+			}
+			else Console.WriteLine("Cart is empty!!");
+				
+		}
+		private static void GetCartPrices()
+		{
+
 		}
 		private static void RemoveItem()
 		{
