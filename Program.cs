@@ -73,6 +73,7 @@ namespace ShoppingSystem
 			Console.WriteLine("Please enter product name: ");
 			string cartItem = Console.ReadLine();
 
+			// using containsKey instead of contains cuz i wanted to check from the stock dictionary
 			if (itemPrices.ContainsKey(cartItem))
 			{
 				cartItems.Add(cartItem);
@@ -136,7 +137,21 @@ namespace ShoppingSystem
 		}
 		private static void RemoveItem()
 		{
-			throw new NotImplementedException();
+			ViewCart();
+			if (cartItems.Any())
+			{
+				Console.WriteLine("Please select item to remove: ");
+				string itemToRemove = Console.ReadLine();
+
+				// using contains not containsKey cuz i wants to check the current availables in cartItems List 
+				// lists do not have key values but has a group of items
+				if (cartItems.Contains(itemToRemove))
+				{
+					cartItems.Remove(itemToRemove);
+					Console.WriteLine($"{itemToRemove} item is removed");
+				}
+				else Console.WriteLine("Item doesn't exists in shopping cart!!");
+			}
 		}
 		private static void Checkout()
 		{
