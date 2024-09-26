@@ -83,10 +83,10 @@ namespace ShoppingSystem
 		}
 		private static void ViewCart()
 		{
-			Console.WriteLine("Your cart items :");
-
 			if (cartItems.Any())
 			{
+				Console.WriteLine("Your cart items :");
+
 				var itemPriceCollection = GetCartPrices();
 				// you can leave it without casting but you can't add, remove, .....
 
@@ -155,7 +155,22 @@ namespace ShoppingSystem
 		}
 		private static void Checkout()
 		{
-			throw new NotImplementedException();
+			if (cartItems.Any())
+			{
+				double totalPrice = 0;
+				Console.WriteLine("Your cart items are: ");
+
+				IEnumerable<Tuple<string, double>> itemsInCart = GetCartPrices();
+				foreach (var item in itemsInCart)
+				{
+					totalPrice += item.Item2;
+					Console.WriteLine(item.Item1 + " " + item.Item2);
+				}
+				Console.WriteLine($"Total price to pay: {totalPrice}");
+				Console.WriteLine("Please proceed to payment, Thank you for shopping with us");
+				cartItems.Clear();
+			}
+			else Console.WriteLine("Your cart is empty!!");
 		}
 		private static void Undo()
 		{
