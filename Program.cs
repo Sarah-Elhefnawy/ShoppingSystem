@@ -178,6 +178,9 @@ namespace ShoppingSystem
 				Console.WriteLine($"Total price to pay: {totalPrice}");
 				Console.WriteLine("Please proceed to payment, Thank you for shopping with us");
 				cartItems.Clear();
+
+				// can not save action in stack cuz customer already paid
+				actions.Push("Checkout");
 			}
 			else Console.WriteLine("Your cart is empty!!");
 		}
@@ -186,6 +189,27 @@ namespace ShoppingSystem
 			// first i need to save all actions in data structure/collection
 			// in this case we aill use STACK ==>> cuz it goes by LIFO rule(last in first out) 
 			
+			if (actions.Count > 0)
+			{
+				// pop is used to bring the last action saved in the Stack
+				string lastAction = actions.Pop();
+				Console.WriteLine($"TYour last action is {lastAction}");
+
+				// since i saved the action by saying what method has occured(added, removed, Checkout)
+
+				// 1. if it says added==>>>> actions.Push($"Item{cartItem} added to cart");
+
+				// to search for the word added in actions message
+				// when no argument is written in split method then the separator is==>>space
+				var actionArray = lastAction.Split();        
+				
+				if (lastAction.Contains("added"))
+				{
+					// i need to remove the item
+					// search the item in actions message==>> it is the second index numbered 1
+					cartItems.Remove(actionArray[1]);
+				}
+			}
 		}
 	}
 }
