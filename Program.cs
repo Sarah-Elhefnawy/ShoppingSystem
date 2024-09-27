@@ -193,7 +193,7 @@ namespace ShoppingSystem
 			{
 				// pop is used to bring the last action saved in the Stack
 				string lastAction = actions.Pop();
-				Console.WriteLine($"TYour last action is {lastAction}");
+				Console.WriteLine($"Your last action is {lastAction}");
 
 				// since i saved the action by saying what method has occured(added, removed, Checkout)
 
@@ -216,6 +216,11 @@ namespace ShoppingSystem
 					// i need to add the removed item
 					// search the item in actions message==>> it is the second index numbered 1
 					cartItems.Add(actionArray[1]);
+				}
+				else
+				{
+					// 3. if it says checkout i won't do anything 
+					Console.WriteLine("Checkout action can't be reversed, please call customer service");
 				}
 			}
 		}
