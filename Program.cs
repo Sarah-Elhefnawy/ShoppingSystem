@@ -5,19 +5,20 @@ namespace ShoppingSystem
 	{
 		// written in namespace so cart value is available to all methods
 		// static so that easily available without making instance/object to access
-		// STOCK
-		static public List<string> cartItems = new List<string>();
+		static public List<string> cartItems = new List<string>();         // STOCK
 
 		// items in store are simple starting with only name and price
 		// saved in dictionary since it is a key value types so consists of key and its value
 		// dictionary is generic type
-		// USER SHOPPING CART
 		static public Dictionary<string, double> itemPrices = new Dictionary<string, double>()
 		{
 			{"Camera",1500 },
 			{"Laptop",3000 },
 			{"TV",2500 }
-		};
+		};       // USER SHOPPING CART
+
+		static Stack<string> actions = new Stack<string>();
+
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Welcome to Shopping System!!!!");
@@ -77,6 +78,10 @@ namespace ShoppingSystem
 			if (itemPrices.ContainsKey(cartItem))
 			{
 				cartItems.Add(cartItem);
+
+				// saving action in stack
+				actions.Push($"Item{cartItem} added to cart");
+
 				Console.WriteLine($"Item {cartItem} is added to your cart");
 			}
 			else Console.WriteLine("Item is out of stock or not available");
@@ -148,6 +153,10 @@ namespace ShoppingSystem
 				if (cartItems.Contains(itemToRemove))
 				{
 					cartItems.Remove(itemToRemove);
+
+					// saving action in stack
+					actions.Push($"Item{itemToRemove} removed from cart");
+
 					Console.WriteLine($"{itemToRemove} item is removed");
 				}
 				else Console.WriteLine("Item doesn't exists in shopping cart!!");
@@ -174,7 +183,9 @@ namespace ShoppingSystem
 		}
 		private static void Undo()
 		{
-			throw new NotImplementedException();
+			// first i need to save all actions in data structure/collection
+			// in this case we aill use STACK ==>> cuz it goes by LIFO rule(last in first out) 
+			
 		}
 	}
 }
