@@ -80,7 +80,7 @@ namespace ShoppingSystem
 				cartItems.Add(cartItem);
 
 				// saving action in stack
-				actions.Push($"Item{cartItem} added to cart");
+				actions.Push($"Item {cartItem} added to cart");
 
 				Console.WriteLine($"Item {cartItem} is added to your cart");
 			}
@@ -155,7 +155,7 @@ namespace ShoppingSystem
 					cartItems.Remove(itemToRemove);
 
 					// saving action in stack
-					actions.Push($"Item{itemToRemove} removed from cart");
+					actions.Push($"Item {itemToRemove} removed from cart");
 
 					Console.WriteLine($"{itemToRemove} item is removed");
 				}
@@ -197,17 +197,25 @@ namespace ShoppingSystem
 
 				// since i saved the action by saying what method has occured(added, removed, Checkout)
 
-				// 1. if it says added==>>>> actions.Push($"Item{cartItem} added to cart");
-
-				// to search for the word added in actions message
+				// to search for the in actions message
 				// when no argument is written in split method then the separator is==>>space
 				var actionArray = lastAction.Split();        
 				
 				if (lastAction.Contains("added"))
 				{
-					// i need to remove the item
+					// 1. if it says added==>>>> actions.Push($"Item {cartItem} added to cart");
+
+					// i need to remove added the item
 					// search the item in actions message==>> it is the second index numbered 1
 					cartItems.Remove(actionArray[1]);
+				}
+				else if (lastAction.Contains("removed"))
+				{
+					//2.  if it says removed==>>>> actions.Push($"Item {itemToRemove} removed from cart");
+
+					// i need to add the removed item
+					// search the item in actions message==>> it is the second index numbered 1
+					cartItems.Add(actionArray[1]);
 				}
 			}
 		}
