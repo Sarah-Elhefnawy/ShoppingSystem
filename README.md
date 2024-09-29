@@ -1,6 +1,7 @@
 
 # Shopping System Project
 
+## Project Description
 This project is a simple shopping system implemented in C# using generics. Users can interact with a virtual shopping experience, including adding items to the cart, viewing cart contents, removing items, checking out, and undoing the last action.
 
 ## Features
@@ -13,7 +14,7 @@ This project is a simple shopping system implemented in C# using generics. Users
 
 ## Video Tutorial Reference
 
-This project is a direct application from a YouTube video created by Piece of Cake Dev channel titled: [C# Level-C][عربى][08 - C# Collections Exercise - Shopping System Project](https://www.youtube.com/watch?v=ddecrbCz74A). The project focuses on collections, lists, stack, dictionary, and data structures, with object-oriented programming principles not fully implemented.
+This project was inspired by a tutorial video created by Piece of Cake Dev channel titled: [C# Level-C][عربى][08 - C# Collections Exercise - Shopping System Project](https://www.youtube.com/watch?v=ddecrbCz74A). The project focuses on collections, lists, stack, dictionary, and data structures, with object-oriented programming principles not fully implemented.
 
 ## How to Use
 
@@ -23,5 +24,3 @@ This project is a direct application from a YouTube video created by Piece of Ca
 
 ## Acknowledgements
 - [Piece of Cake Dev Channel](https://www.youtube.com/@poclearn) for the original idea and implementation.
-
-Feel free to explore the YouTube video for a detailed guide on implementing the project.
