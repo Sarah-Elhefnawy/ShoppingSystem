@@ -14,13 +14,16 @@ This project is a simple shopping system implemented in C# using generics. Users
 
 ## Video Tutorial Reference
 
-This project was inspired by a tutorial video created by Piece of Cake Dev channel titled: [C# Level-C][عربى][08 - C# Collections Exercise - Shopping System Project](https://www.youtube.com/watch?v=ddecrbCz74A). The project focuses on collections, lists, stack, dictionary, and data structures, with object-oriented programming principles not fully implemented.
+This project was inspired by a tutorial video titled: [[C# Level-C][عربى][08 - C# Collections Exercise - Shopping System Project]](https://www.youtube.com/watch?v=ddecrbCz74A). The project focuses on collections, lists, stack, dictionary, and data structures, with object-oriented programming principles not fully implemented.
 
 ## How to Use
 
 1. Clone the repository.
-2. Open the solution in Visual Studio.
-3. Build and run the project.
+```
+        git clone        https://github.com/yourusername/ShoppingSystem.git
+```
+3. Open the solution in Visual Studio.
+4. Build and run the project.
 
 ## Acknowledgements
 - [Piece of Cake Dev Channel](https://www.youtube.com/@poclearn) for the original idea and implementation.
